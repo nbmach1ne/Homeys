@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/particles_test.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 100, 0, 20, 36 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.243182 ), 0.0, 0.681283, 0, 0, Vector2( 0.989011, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="HandParticles" type="CPUParticles2D"]
+amount = 3
+explosiveness = 0.3
+texture = SubResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 5 )
+gravity = Vector2( 0, -50 )
+scale_amount_curve = SubResource( 2 )
