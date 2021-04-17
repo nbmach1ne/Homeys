@@ -2,6 +2,8 @@ extends Node2D
 
 export var food_time = 5
 
+const FOOD_STEPS = 3
+
 var aceituna = load("res://Assets/Sprites/Food/aceituna_spritesheet.png")
 var quesito = load("res://Assets/Sprites/Food/cheese_spritesheet.png")
 var setilla = load("res://Assets/Sprites/Food/mushroom_spritesheet.png")
@@ -11,6 +13,7 @@ var food_selected = Global.Food.NONE
 var cursor_on_screen = false
 var cursor_down = false
 var total_time = 0
+var step = 1
 
 signal food_minigame_started
 signal food_minigame_finished(success, food)
@@ -29,7 +32,12 @@ func _process(delta: float) -> void:
 		total_time += delta
 		#print ("Food time: ", total_time)
 		if total_time >= food_time:
-			finish_minigame(true)
+			step += 1
+			total_time = 0
+			if step > FOOD_STEPS: 
+				finish_minigame(true)
+			else:
+				$Cursor.frame = step
 
 func start_minigame() -> void:
 	minigame_enabled = true
@@ -41,9 +49,10 @@ func select_food(food: int) -> void:
 	print("select food")
 	food_selected = food
 	total_time = 0
+	step = 1
 	set_food_texture(food)
 	$Cursor.position = get_global_mouse_position()
-	$Cursor.frame = 1
+	$Cursor.frame = step
 	$Cursor.visible = true
 	$FoodHUD.visible = false
 	

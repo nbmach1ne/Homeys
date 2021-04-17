@@ -118,6 +118,7 @@ position = Vector2( 526.347, 436.228 )
 
 [node name="FoodMinigame" type="Node2D" parent="."]
 script = ExtResource( 3 )
+food_time = 2
 
 [node name="Cursor" type="Sprite" parent="FoodMinigame"]
 visible = false
