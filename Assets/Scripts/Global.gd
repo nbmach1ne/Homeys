@@ -1,3 +1,6 @@
 extends Node
 
 enum Food { NONE, OLIVE, CHEESE, MUSHROOM }
+enum Emotion { NEUTRAL, HAPPY, HUNGRY, BORED }
+enum GameState { IDLE, FOOD_MINIGAME, PET_MINIGAME }
+enum MinigameState { NOT_SELECTED, WAITING_SELECTION, SELECTED }

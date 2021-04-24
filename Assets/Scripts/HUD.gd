@@ -1,6 +1,8 @@
 extends Control
 
 
+# SIGNAL HANDLERS
+
 func _on_PowerButton_button_down() -> void:
 	get_tree().quit()
 

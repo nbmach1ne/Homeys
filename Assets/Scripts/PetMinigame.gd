@@ -45,12 +45,6 @@ func finish_minigame(success: bool) -> void:
 
 
 # SIGNALS
-
-func _on_PetButton_button_down() -> void:
-	start_minigame()
-	
-func _on_FoodButton_button_down() -> void:
-	finish_minigame(false)
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if not minigame_enabled: return
