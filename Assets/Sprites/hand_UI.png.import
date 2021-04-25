@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/particles_test.png-22d7ace72d71b621ae53f4ff7ebe0839.stex"
+path="res://.import/hand_UI.png-f569ca1230fa72edfa5a11775580860e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/particles_test.png"
-dest_files=[ "res://.import/particles_test.png-22d7ace72d71b621ae53f4ff7ebe0839.stex" ]
+source_file="res://Assets/Sprites/hand_UI.png"
+dest_files=[ "res://.import/hand_UI.png-f569ca1230fa72edfa5a11775580860e.stex" ]
 
 [params]
 
