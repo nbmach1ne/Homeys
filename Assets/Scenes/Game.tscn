@@ -115,6 +115,7 @@ texture = ExtResource( 6 )
 
 [node name="BicheteManager" type="Node2D" parent="."]
 script = ExtResource( 16 )
+min_time_between_events = 5
 
 [node name="ScreenArea" type="Area2D" parent="BicheteManager"]
 position = Vector2( -171.649, -20.655 )
@@ -125,6 +126,7 @@ shape = SubResource( 7 )
 
 [node name="Bichete" parent="BicheteManager" instance=ExtResource( 4 )]
 position = Vector2( 360, 287.358 )
+dislike_food = null
 
 [node name="FoodMinigame" type="Node2D" parent="BicheteManager"]
 script = ExtResource( 1 )

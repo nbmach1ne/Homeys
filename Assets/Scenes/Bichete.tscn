@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Shaders/wobbly_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/Dependent/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scripts/Bichete.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sprites/bubble_food.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96.031, 62.5151 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 1232, 112, 112 )
 
 [node name="Bichete" type="Node2D"]
 script = ExtResource( 3 )
@@ -20,3 +25,8 @@ vframes = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 31.627 )
 shape = SubResource( 1 )
+
+[node name="Bubble" type="Sprite" parent="."]
+visible = false
+position = Vector2( 56.3401, -74.8398 )
+texture = SubResource( 2 )

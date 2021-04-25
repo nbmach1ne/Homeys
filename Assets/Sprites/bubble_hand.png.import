@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bocadilloanim_spritesheet_mimos.png-1c4eb9a2f70db25667ed9f39d9ab061b.stex"
+path="res://.import/bubble_hand.png-4e892f6feed93fcd7c882037ecc4f7bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/bocadilloanim_spritesheet_mimos.png"
-dest_files=[ "res://.import/bocadilloanim_spritesheet_mimos.png-1c4eb9a2f70db25667ed9f39d9ab061b.stex" ]
+source_file="res://Assets/Sprites/bubble_hand.png"
+dest_files=[ "res://.import/bubble_hand.png-4e892f6feed93fcd7c882037ecc4f7bf.stex" ]
 
 [params]
 

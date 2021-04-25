@@ -11,8 +11,8 @@ onready var particles = $Cursor/Particles
 
 # SIGNALS
 
+signal start_minigame_action
 signal complete_minigame
-
 
 
 # METHODS
