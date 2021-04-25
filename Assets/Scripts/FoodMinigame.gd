@@ -1,15 +1,25 @@
 extends "res://Assets/Scripts/Minigame.gd"
 
 
+# EXPORTS
+
+export var total_steps = 3
+
 # VARS
 
 var olive_texture = load("res://Assets/Sprites/Food/aceituna_spritesheet.png")
 var cheese_texture = load("res://Assets/Sprites/Food/cheese_spritesheet.png")
 var mushroom_texture = load("res://Assets/Sprites/Food/mushroom_spritesheet.png")
 
+var step
+
 
 
 # METHODS
+
+func _ready() -> void:
+	step = 1
+
 
 func set_cursor_texture(food: int) -> void:
 		assert(food in Global.Food.values(), "the function argument is expected to be a Food value")
@@ -21,6 +31,20 @@ func set_cursor_texture(food: int) -> void:
 				cursor.texture = cheese_texture
 			Global.Food.MUSHROOM:
 				cursor.texture = mushroom_texture
+				
+func start_minigame() -> void:
+	.start_minigame()
+	step = 1
+
+func process_action(delta: float) -> void:
+	time += delta
+	if time >= total_time:
+		step += 1
+		time = 0
+		if step > total_steps:
+			complete_minigame()
+		else:
+			cursor.frame = step
 
 
 

@@ -1,10 +1,15 @@
 extends Node2D
 
 
+# EXPORTS
+
+export var total_time = 5
+
 # VARS
 
 var state
 var over_bichete
+var time
 onready var HUD = $HUD
 onready var cursor = $Cursor
 onready var particles = $Cursor/Particles
@@ -24,10 +29,11 @@ func _ready() -> void:
 	state = Global.MinigameState.NOT_SELECTED
 	over_bichete = false
 	HUD.visible = false
+	time = 0
 	
 func _process(delta: float) -> void:
 	if state == Global.MinigameState.SELECTED or state == Global.MinigameState.ACTION:
-		$Cursor.position = get_global_mouse_position()
+		cursor.position = get_global_mouse_position()
 		
 		if over_bichete:
 			process_input()
@@ -37,21 +43,25 @@ func _process(delta: float) -> void:
 func start_minigame() -> void:
 	state = Global.MinigameState.WAITING_SELECTION
 	HUD.visible = true
+	time = 0
 	
 func cancel_minigame() -> void:
 	state = Global.MinigameState.WAITING_SELECTION
 	HUD.visible = false
 	
+func complete_minigame() -> void:
+	state = Global.MinigameState.NOT_SELECTED
+	cursor.visible = false
+	emit_signal("complete_minigame")
+	
 func start_action() -> void:
 	state = Global.MinigameState.ACTION
 	particles.visible = true
-	print("START")
-	
+
 func stop_action() -> void:
 	state = Global.MinigameState.SELECTED
 	particles.visible = false
-	print("STOP")
-	
+
 func process_action(delta: float) -> void:
 	pass
 	

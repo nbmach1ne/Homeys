@@ -56,6 +56,6 @@ func make_bored() -> void:
 func set_bubble_texture(minigame: int) -> void:
 	match minigame:
 		Global.GameState.PET_MINIGAME:
-			bubble.texture.set_atlas(bubble_hand_atlas)
+			bubble.texture = bubble_hand_atlas
 		Global.GameState.FOOD_MINIGAME:
-			bubble.texture.set_atlas(bubble_food_atlas)
+			bubble.texture = bubble_food_atlas

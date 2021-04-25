@@ -38,12 +38,14 @@ func _process(delta: float) -> void:
 		time += delta
 
 
+func is_ok() -> bool:
+	return value < neutral_limit
 
 func is_over_neutral_limit() -> bool:
-	return value < neutral_limit
+	return value >= neutral_limit and value < sad_limit
 	
 func is_over_sad_limit() -> bool:
-	return value < sad_limit
+	return value >= sad_limit
 
 func increase_value() -> void:
 	time = 0

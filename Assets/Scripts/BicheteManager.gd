@@ -4,6 +4,9 @@ extends Node2D
 # EXPORTS
 
 export var min_time_between_events = 30
+export var food_minigame_points = 4
+export(Global.Food) var food_minigame_dislike = Global.Food.NONE
+export var pet_minigame_points = 4
 
 # VARS
 
@@ -61,6 +64,17 @@ func check_sad() -> void:
 		bichete.make_bored()
 		time_since_last_event = 0
 		
+func check_bichete_after_minigame() -> void:
+	if hungry_stat.is_ok() and bored_stat.is_ok():
+		bichete.make_happy()
+	elif hungry_stat.is_over_neutral_limit() or bored_stat.is_over_neutral_limit():
+		bichete.make_neutral()
+	elif hungry_stat.is_over_sad_limit():
+		bichete.make_hungry()
+	elif bored_stat.is_over_sad_limit():
+		bichete.make_bored()
+
+		
 func show_minigame_cursor(show: bool) -> void:
 	match state:
 		Global.GameState.FOOD_MINIGAME:
@@ -99,3 +113,18 @@ func _on_ScreenArea_mouse_entered() -> void:
 
 func _on_ScreenArea_mouse_exited() -> void:
 	show_minigame_cursor(false)
+
+
+func _on_FoodMinigame_complete_minigame() -> void:
+	state = Global.GameState.IDLE
+	hungry_stat.decrease_value(food_minigame_points)
+	time_since_last_event = 0
+	check_bichete_after_minigame()
+	# make the bichete react
+
+func _on_PetMinigame_complete_minigame() -> void:
+	state = Global.GameState.IDLE
+	bored_stat.decrease_value(pet_minigame_points)
+	time_since_last_event = 0
+	check_bichete_after_minigame()
+	# make the bichete react
