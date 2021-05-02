@@ -32,8 +32,8 @@ func set_cursor_texture(food: int) -> void:
 			Global.Food.MUSHROOM:
 				cursor.texture = mushroom_texture
 				
-func start_minigame() -> void:
-	.start_minigame()
+func start_minigame(complete_callback: FuncRef) -> void:
+	.start_minigame(complete_callback)
 	step = 1
 
 func process_action(delta: float) -> void:
@@ -51,13 +51,16 @@ func process_action(delta: float) -> void:
 # SIGNAL HANDLERS
 
 func _on_Olive_button_down() -> void:
+	cursor.frame = 1
 	set_cursor_texture(Global.Food.OLIVE)
 	.option_selected()
 
 func _on_Cheese_button_down() -> void:
+	cursor.frame = 1
 	set_cursor_texture(Global.Food.CHEESE)
 	.option_selected()
 
 func _on_Mushroom_button_down() -> void:
+	cursor.frame = 1
 	set_cursor_texture(Global.Food.MUSHROOM)
 	.option_selected()

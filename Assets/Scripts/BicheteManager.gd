@@ -82,6 +82,20 @@ func show_minigame_cursor(show: bool) -> void:
 		Global.GameState.PET_MINIGAME:
 			pet_minigame.show_cursor(show)
 
+func start_minigame(minigame: int) -> void:
+	match minigame:
+		Global.GameState.FOOD_MINIGAME:
+			state = Global.GameState.FOOD_MINIGAME
+			food_minigame.start_minigame(null)
+		Global.GameState.PET_MINIGAME:
+			state = Global.GameState.PET_MINIGAME
+			pet_minigame.start_minigame(null)
+			
+func start_food_minigame() -> void:
+	start_minigame(Global.GameState.FOOD_MINIGAME)
+	
+func start_pet_minigame() -> void:
+	start_minigame(Global.GameState.PET_MINIGAME)
 
 
 # SIGNAL HANDLERS
@@ -96,17 +110,17 @@ func _on_BoredStat_sad_limit_reached() -> void:
 
 func _on_PetButton_button_down() -> void:
 	if state == Global.GameState.FOOD_MINIGAME:
-		food_minigame.cancel_minigame()
-		
-	state = Global.GameState.PET_MINIGAME
-	pet_minigame.start_minigame()
+		var callback = funcref(self, "start_pet_minigame")
+		food_minigame.cancel_minigame(callback)
+	else:
+		start_pet_minigame()
 
 func _on_FoodButton_button_down() -> void:
 	if state == Global.GameState.PET_MINIGAME:
-		pet_minigame.cancel_minigame()
-		
-	state = Global.GameState.FOOD_MINIGAME
-	food_minigame.start_minigame()
+		var callback = funcref(self, "start_food_minigame")
+		pet_minigame.cancel_minigame(callback)
+	else:
+		start_food_minigame()
 
 func _on_ScreenArea_mouse_entered() -> void:
 	show_minigame_cursor(true)

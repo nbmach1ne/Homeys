@@ -40,14 +40,14 @@ func _process(delta: float) -> void:
 			if state == Global.MinigameState.ACTION:
 				process_action(delta)
 
-func start_minigame() -> void:
+func start_minigame(complete_callback: FuncRef) -> void:
 	state = Global.MinigameState.WAITING_SELECTION
-	HUD.visible = true
 	time = 0
+	HUD.transition_in(complete_callback)
 	
-func cancel_minigame() -> void:
+func cancel_minigame(complete_callback: FuncRef) -> void:
 	state = Global.MinigameState.WAITING_SELECTION
-	HUD.visible = false
+	HUD.transition_out(complete_callback)
 	
 func complete_minigame() -> void:
 	state = Global.MinigameState.NOT_SELECTED
@@ -75,12 +75,17 @@ func process_input() -> void:
 func show_cursor(show: bool) -> void:
 	if state == Global.MinigameState.SELECTED:
 		cursor.visible = show
+		
+func show_HUD() -> void:
+	HUD.visible = true
+		
+func hide_HUD() -> void:
+	HUD.visible = false
 	
 func option_selected() -> void:
 	state = Global.MinigameState.SELECTED
-	HUD.visible = false
 	cursor.visible = true
-
+	HUD.transition_out(null)
 
 
 # SIGNAL HANDLERS
