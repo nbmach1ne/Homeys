@@ -122,13 +122,6 @@ func _on_FoodButton_button_down() -> void:
 	else:
 		start_food_minigame()
 
-func _on_ScreenArea_mouse_entered() -> void:
-	show_minigame_cursor(true)
-
-func _on_ScreenArea_mouse_exited() -> void:
-	show_minigame_cursor(false)
-
-
 func _on_FoodMinigame_complete_minigame() -> void:
 	state = Global.GameState.IDLE
 	hungry_stat.decrease_value(food_minigame_points)

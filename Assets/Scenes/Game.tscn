@@ -19,9 +19,7 @@
 [ext_resource path="res://Assets/Sprites/hand_UI.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Scripts/HUDPetMinigame.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Scripts/HUDFoodMinigame.gd" type="Script" id=19]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 163.088, 141.151 )
+[ext_resource path="res://Assets/Sprites/mascara.png" type="Texture" id=20]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -61,43 +59,43 @@ region = Rect2( 0, 0, 73, 76 )
 atlas = ExtResource( 8 )
 region = Rect2( 0, 76, 73, 76 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 60, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 60, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 0, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 120, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 120, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 240, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 240, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 180, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 180, 97, 60 )
 
@@ -111,17 +109,16 @@ texture = ExtResource( 12 )
 position = Vector2( 360, 288 )
 texture = ExtResource( 6 )
 
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 360, 246.81 )
+texture = ExtResource( 20 )
+mode = 3
+range_item_cull_mask = 1024
+
 [node name="BicheteManager" type="Node2D" parent="."]
 script = ExtResource( 16 )
 min_time_between_events = 14
 food_minigame_dislike = 1
-
-[node name="ScreenArea" type="Area2D" parent="BicheteManager"]
-position = Vector2( -171.649, -20.655 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BicheteManager/ScreenArea"]
-position = Vector2( 532.15, 308.013 )
-shape = SubResource( 1 )
 
 [node name="Bichete" parent="BicheteManager" instance=ExtResource( 4 )]
 position = Vector2( 360, 287.358 )
@@ -136,6 +133,7 @@ time_between_increases = 8.0
 
 [node name="HUD" type="Control" parent="BicheteManager/FoodMinigame"]
 visible = false
+light_mask = 1024
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 19 )
@@ -146,6 +144,7 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="BicheteManager/FoodMinigame/HUD"]
 
 [node name="BottomPanel" type="TextureRect" parent="BicheteManager/FoodMinigame/HUD"]
+light_mask = 1024
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -162,6 +161,7 @@ __meta__ = {
 }
 
 [node name="Olive" type="TextureButton" parent="BicheteManager/FoodMinigame/HUD"]
+light_mask = 1024
 margin_left = 204.625
 margin_top = 300.0
 margin_right = 308.625
@@ -170,6 +170,7 @@ texture_normal = SubResource( 2 )
 texture_hover = SubResource( 3 )
 
 [node name="Cheese" type="TextureButton" parent="BicheteManager/FoodMinigame/HUD"]
+light_mask = 1024
 margin_left = 308.625
 margin_top = 300.0
 margin_right = 412.625
@@ -178,6 +179,7 @@ texture_normal = SubResource( 4 )
 texture_hover = SubResource( 5 )
 
 [node name="Mushroom" type="TextureButton" parent="BicheteManager/FoodMinigame/HUD"]
+light_mask = 1024
 margin_left = 412.625
 margin_top = 300.0
 margin_right = 516.625
@@ -190,6 +192,7 @@ __meta__ = {
 
 [node name="Cursor" type="Sprite" parent="BicheteManager/FoodMinigame"]
 visible = false
+light_mask = 1024
 position = Vector2( 360, 364.732 )
 texture = ExtResource( 10 )
 vframes = 4
@@ -197,6 +200,7 @@ vframes = 4
 [node name="Particles" parent="BicheteManager/FoodMinigame/Cursor" instance=ExtResource( 3 )]
 visible = false
 show_behind_parent = true
+light_mask = 1024
 position = Vector2( -1.33481, -27.061 )
 scale = Vector2( 2, 2 )
 
@@ -208,6 +212,7 @@ script = ExtResource( 15 )
 time_between_increases = 5.0
 
 [node name="HUD" type="Control" parent="BicheteManager/PetMinigame"]
+light_mask = 1024
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 18 )
@@ -218,6 +223,7 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="BicheteManager/PetMinigame/HUD"]
 
 [node name="BottomPanel" type="TextureRect" parent="BicheteManager/PetMinigame/HUD"]
+light_mask = 1024
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -234,6 +240,7 @@ __meta__ = {
 }
 
 [node name="Hand" type="TextureButton" parent="BicheteManager/PetMinigame/HUD"]
+light_mask = 1024
 margin_left = 321.713
 margin_top = 340.0
 margin_right = 394.713
@@ -246,6 +253,7 @@ __meta__ = {
 
 [node name="Cursor" type="Sprite" parent="BicheteManager/PetMinigame"]
 visible = false
+light_mask = -2147482624
 position = Vector2( 358.665, 382.926 )
 texture = ExtResource( 8 )
 vframes = 2
@@ -253,6 +261,7 @@ vframes = 2
 [node name="Particles" parent="BicheteManager/PetMinigame/Cursor" instance=ExtResource( 3 )]
 visible = false
 show_behind_parent = true
+light_mask = 1024
 position = Vector2( 0, -45.2548 )
 scale = Vector2( 2, 2 )
 
@@ -278,8 +287,8 @@ margin_top = 187.284
 margin_right = 662.409
 margin_bottom = 247.284
 shortcut_in_tooltip = false
-texture_normal = SubResource( 11 )
-texture_pressed = SubResource( 12 )
+texture_normal = SubResource( 10 )
+texture_pressed = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -290,8 +299,8 @@ margin_top = 253.159
 margin_right = 661.743
 margin_bottom = 313.159
 shortcut_in_tooltip = false
-texture_normal = SubResource( 13 )
-texture_pressed = SubResource( 14 )
+texture_normal = SubResource( 12 )
+texture_pressed = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -301,16 +310,16 @@ margin_left = 564.443
 margin_top = 349.695
 margin_right = 661.443
 margin_bottom = 409.695
-texture_normal = SubResource( 15 )
-texture_pressed = SubResource( 16 )
+texture_normal = SubResource( 14 )
+texture_pressed = SubResource( 15 )
 
 [node name="VolumeDown" type="TextureButton" parent="HUD"]
 margin_left = 31.8228
 margin_top = 338.866
 margin_right = 128.823
 margin_bottom = 398.866
-texture_normal = SubResource( 17 )
-texture_pressed = SubResource( 18 )
+texture_normal = SubResource( 16 )
+texture_pressed = SubResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -320,10 +329,8 @@ margin_left = 80.7272
 margin_top = 361.13
 margin_right = 177.727
 margin_bottom = 421.13
-texture_normal = SubResource( 19 )
-texture_pressed = SubResource( 20 )
-[connection signal="mouse_entered" from="BicheteManager/ScreenArea" to="BicheteManager" method="_on_ScreenArea_mouse_entered"]
-[connection signal="mouse_exited" from="BicheteManager/ScreenArea" to="BicheteManager" method="_on_ScreenArea_mouse_exited"]
+texture_normal = SubResource( 18 )
+texture_pressed = SubResource( 19 )
 [connection signal="complete_minigame" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_complete_minigame"]
 [connection signal="sad_limit_reached" from="BicheteManager/FoodMinigame/HungryStat" to="BicheteManager" method="_on_HungryStat_sad_limit_reached"]
 [connection signal="button_down" from="BicheteManager/FoodMinigame/HUD/Olive" to="BicheteManager/FoodMinigame" method="_on_Olive_button_down"]
