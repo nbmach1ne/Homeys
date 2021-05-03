@@ -17,7 +17,8 @@
 [ext_resource path="res://Assets/Scripts/Stat.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Scripts/BicheteManager.gd" type="Script" id=16]
 [ext_resource path="res://Assets/Sprites/hand_UI.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Scripts/HUDPanel.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Scripts/HUDPetMinigame.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Scripts/HUDFoodMinigame.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 163.088, 141.151 )
@@ -59,10 +60,6 @@ region = Rect2( 0, 0, 73, 76 )
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 76, 73, 76 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 73, 76 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 11 )
@@ -138,9 +135,10 @@ script = ExtResource( 15 )
 time_between_increases = 8.0
 
 [node name="HUD" type="Control" parent="BicheteManager/FoodMinigame"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -210,7 +208,6 @@ script = ExtResource( 15 )
 time_between_increases = 5.0
 
 [node name="HUD" type="Control" parent="BicheteManager/PetMinigame"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 18 )
@@ -250,7 +247,8 @@ __meta__ = {
 [node name="Cursor" type="Sprite" parent="BicheteManager/PetMinigame"]
 visible = false
 position = Vector2( 358.665, 382.926 )
-texture = SubResource( 10 )
+texture = ExtResource( 8 )
+vframes = 2
 
 [node name="Particles" parent="BicheteManager/PetMinigame/Cursor" instance=ExtResource( 3 )]
 visible = false

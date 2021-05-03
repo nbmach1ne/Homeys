@@ -53,14 +53,17 @@ func process_action(delta: float) -> void:
 func _on_Olive_button_down() -> void:
 	cursor.frame = 1
 	set_cursor_texture(Global.Food.OLIVE)
+	HUD.hide_option(Global.Food.OLIVE)
 	.option_selected()
 
 func _on_Cheese_button_down() -> void:
 	cursor.frame = 1
 	set_cursor_texture(Global.Food.CHEESE)
+	HUD.hide_option(Global.Food.CHEESE)
 	.option_selected()
 
 func _on_Mushroom_button_down() -> void:
 	cursor.frame = 1
 	set_cursor_texture(Global.Food.MUSHROOM)
+	HUD.hide_option(Global.Food.MUSHROOM)
 	.option_selected()

@@ -31,3 +31,4 @@ func transition_complete() -> void:
 	if callback != null and callback.is_valid():
 		callback.call_func()
 		callback = null
+		

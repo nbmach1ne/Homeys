@@ -17,4 +17,6 @@ func stop_action() -> void:
 # SIGNAL HANDLERS
 
 func _on_Hand_button_down() -> void:
+	cursor.frame = 1
+	HUD.hide_option()
 	.option_selected()
