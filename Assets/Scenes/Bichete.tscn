@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Shaders/wobbly_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/Dependent/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scripts/Bichete.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sprites/bubble_food.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Scripts/Bubble.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96.031, 62.5151 )
@@ -23,7 +24,10 @@ position = Vector2( 0, 31.627 )
 shape = SubResource( 1 )
 
 [node name="Bubble" type="Sprite" parent="."]
-position = Vector2( 56.3401, -74.8398 )
+position = Vector2( 55, -75 )
 texture = ExtResource( 4 )
 vframes = 12
 frame = 11
+script = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="Bubble"]

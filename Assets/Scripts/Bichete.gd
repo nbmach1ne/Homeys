@@ -7,9 +7,6 @@ export(Global.Food) var dislike_food = Global.Food.OLIVE
 
 # VARS
 
-var bubble_hand_atlas = load("res://Assets/Sprites/bubble_hand.png")
-var bubble_food_atlas = load("res://Assets/Sprites/bubble_food.png")
-
 var emotion
 
 onready var sprite = $Sprite
@@ -19,43 +16,35 @@ onready var bubble = $Bubble
 # METHODS
 
 func _ready() -> void:
-	make_happy()
+	emotion = Global.Emotion.HAPPY
+	sprite.frame = 1
 
 
 
 func make_neutral() -> void:
 	emotion = Global.Emotion.NEUTRAL
 	sprite.frame = 0
-	bubble.visible = false
+	bubble.hide_bubble()
 	
 	if OS.is_debug_build(): print("[Bichete] Neutral")
 
 func make_happy() -> void:
 	emotion = Global.Emotion.HAPPY
 	sprite.frame = 1
-	bubble.visible = false
+	bubble.hide_bubble()
 	
 	if OS.is_debug_build(): print("[Bichete] Happy :)")
 	
 func make_hungry() -> void:
 	emotion = Global.Emotion.HUNGRY
 	sprite.frame = 2
-	set_bubble_texture(Global.GameState.FOOD_MINIGAME)
-	bubble.visible = true
+	bubble.show_bubble(emotion)
 	
 	if OS.is_debug_build(): print("[Bichete] Hungy :(")
 	
 func make_bored() -> void:
 	emotion = Global.Emotion.BORED
 	sprite.frame = 2
-	set_bubble_texture(Global.GameState.PET_MINIGAME)
-	bubble.visible = true
+	bubble.show_bubble(emotion)
 	
 	if OS.is_debug_build(): print("[Bichete] Bored :(")
-
-func set_bubble_texture(minigame: int) -> void:
-	match minigame:
-		Global.GameState.PET_MINIGAME:
-			bubble.texture = bubble_hand_atlas
-		Global.GameState.FOOD_MINIGAME:
-			bubble.texture = bubble_food_atlas

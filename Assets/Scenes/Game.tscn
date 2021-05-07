@@ -21,81 +21,81 @@
 [ext_resource path="res://Assets/Scripts/HUDFoodMinigame.gd" type="Script" id=19]
 [ext_resource path="res://Assets/Sprites/mascara.png" type="Texture" id=20]
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 104, 134 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 0, 134, 104, 134 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 104, 134 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 104, 134 )
+region = Rect2( 0, 134, 104, 134 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 134, 104, 134 )
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 104, 134 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 104, 134 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 7 )
 region = Rect2( 0, 134, 104, 134 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 73, 76 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 76, 73, 76 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 60, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 60, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 0, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 120, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 120, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 240, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 240, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 180, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 180, 97, 60 )
 
@@ -166,8 +166,8 @@ margin_left = 204.625
 margin_top = 300.0
 margin_right = 308.625
 margin_bottom = 434.0
-texture_normal = SubResource( 2 )
-texture_hover = SubResource( 3 )
+texture_normal = SubResource( 1 )
+texture_hover = SubResource( 2 )
 
 [node name="Cheese" type="TextureButton" parent="BicheteManager/FoodMinigame/HUD"]
 light_mask = 1024
@@ -175,8 +175,8 @@ margin_left = 308.625
 margin_top = 300.0
 margin_right = 412.625
 margin_bottom = 434.0
-texture_normal = SubResource( 4 )
-texture_hover = SubResource( 5 )
+texture_normal = SubResource( 3 )
+texture_hover = SubResource( 4 )
 
 [node name="Mushroom" type="TextureButton" parent="BicheteManager/FoodMinigame/HUD"]
 light_mask = 1024
@@ -184,8 +184,8 @@ margin_left = 412.625
 margin_top = 300.0
 margin_right = 516.625
 margin_bottom = 434.0
-texture_normal = SubResource( 6 )
-texture_hover = SubResource( 7 )
+texture_normal = SubResource( 5 )
+texture_hover = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -245,8 +245,8 @@ margin_left = 321.713
 margin_top = 340.0
 margin_right = 394.713
 margin_bottom = 416.0
-texture_normal = SubResource( 8 )
-texture_hover = SubResource( 9 )
+texture_normal = SubResource( 7 )
+texture_hover = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -287,8 +287,8 @@ margin_top = 187.284
 margin_right = 662.409
 margin_bottom = 247.284
 shortcut_in_tooltip = false
-texture_normal = SubResource( 10 )
-texture_pressed = SubResource( 11 )
+texture_normal = SubResource( 9 )
+texture_pressed = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -299,8 +299,8 @@ margin_top = 253.159
 margin_right = 661.743
 margin_bottom = 313.159
 shortcut_in_tooltip = false
-texture_normal = SubResource( 12 )
-texture_pressed = SubResource( 13 )
+texture_normal = SubResource( 11 )
+texture_pressed = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -310,16 +310,16 @@ margin_left = 564.443
 margin_top = 349.695
 margin_right = 661.443
 margin_bottom = 409.695
-texture_normal = SubResource( 14 )
-texture_pressed = SubResource( 15 )
+texture_normal = SubResource( 13 )
+texture_pressed = SubResource( 14 )
 
 [node name="VolumeDown" type="TextureButton" parent="HUD"]
 margin_left = 31.8228
 margin_top = 338.866
 margin_right = 128.823
 margin_bottom = 398.866
-texture_normal = SubResource( 16 )
-texture_pressed = SubResource( 17 )
+texture_normal = SubResource( 15 )
+texture_pressed = SubResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -329,8 +329,8 @@ margin_left = 80.7272
 margin_top = 361.13
 margin_right = 177.727
 margin_bottom = 421.13
-texture_normal = SubResource( 18 )
-texture_pressed = SubResource( 19 )
+texture_normal = SubResource( 17 )
+texture_pressed = SubResource( 18 )
 [connection signal="complete_minigame" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_complete_minigame"]
 [connection signal="sad_limit_reached" from="BicheteManager/FoodMinigame/HungryStat" to="BicheteManager" method="_on_HungryStat_sad_limit_reached"]
 [connection signal="button_down" from="BicheteManager/FoodMinigame/HUD/Olive" to="BicheteManager/FoodMinigame" method="_on_Olive_button_down"]

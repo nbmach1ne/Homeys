@@ -5,6 +5,7 @@ extends Control
 # VARS
 
 var callback
+
 onready var tween = $Tween
 
 # METHODS
