@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Shaders/wobbly_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/Dependent/spritesheet.png" type="Texture" id=2]
@@ -9,15 +9,63 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96.031, 62.5151 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "Happy"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.249874, 7.00208, 0.198586, -5.56488, -0.143146, -0.25, 0, 0.125235, -5.92225, -19.9331, -0.119492, -3.35958, 0.13098, 1.85739, 0, -0.179757, -1.85026, 0.170001, 1.74983, -19.7393, -0.0952955, -3.26821, 0.100037, 3.43081, 0, -0.219967, -5.40338, 0.219995, 5.40407 ),
+"times": PoolRealArray( 0, 0.0483048, 0.2, 0.5, 0.7, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Sprite:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.056, -0.058, 0.042, 0.048, 1.1, -0.044, -0.002, 0.107, -0.005, 0.9, -0.119, 0, 0.25, 0, 1, -0.0563115, -0.0581546, 0.0420872, 0.0479842, 1.1, -0.0436941, -0.00221217, 0.106587, -0.00547802, 0.9, -0.118553, 0.000206232, 0.25, 0, 1, -0.056, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.2, 0.5, 0.55, 0.7, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Sprite:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.056, -0.058, 0.042, 0.048, 1.1, -0.044, -0.002, 0.107, -0.005, 0.9, -0.119, 0, 0.25, 0, 1, -0.0563115, -0.0581546, 0.0420872, 0.0479842, 1.1, -0.0436941, -0.00221217, 0.106587, -0.00547802, 0.9, -0.118553, 0.000206232, 0.25, 0, 1, -0.056, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.2, 0.5, 0.55, 0.7, 1 )
+}
+
 [node name="Bichete" type="Node2D"]
+scale = Vector2( 1.02013, 0.97987 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 3
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 31.627 )
@@ -31,3 +79,6 @@ frame = 11
 script = ExtResource( 5 )
 
 [node name="Tween" type="Tween" parent="Bubble"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Happy = SubResource( 2 )
