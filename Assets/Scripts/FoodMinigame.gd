@@ -12,7 +12,7 @@ var cheese_texture = load("res://Assets/Sprites/Food/cheese_spritesheet.png")
 var mushroom_texture = load("res://Assets/Sprites/Food/mushroom_spritesheet.png")
 
 var step
-
+var option
 
 
 # METHODS
@@ -32,6 +32,8 @@ func set_cursor_texture(food: int) -> void:
 			Global.Food.MUSHROOM:
 				cursor.texture = mushroom_texture
 				
+		option = food
+				
 func start_minigame(complete_callback: FuncRef) -> void:
 	.start_minigame(complete_callback)
 	step = 1
@@ -42,7 +44,7 @@ func process_action(delta: float) -> void:
 		step += 1
 		time = 0
 		if step > total_steps:
-			complete_minigame()
+			complete_minigame(option)
 		else:
 			cursor.frame = step
 

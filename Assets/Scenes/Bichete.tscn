@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Shaders/wobbly_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/Dependent/spritesheet.png" type="Texture" id=2]
@@ -18,7 +18,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.00130401 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 1 ]
@@ -30,8 +30,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.249874, 7.00208, 0.198586, -5.56488, -0.143146, -0.25, 0, 0.125235, -5.92225, -19.9331, -0.119492, -3.35958, 0.13098, 1.85739, 0, -0.179757, -1.85026, 0.170001, 1.74983, -19.7393, -0.0952955, -3.26821, 0.100037, 3.43081, 0, -0.219967, -5.40338, 0.219995, 5.40407 ),
-"times": PoolRealArray( 0, 0.0483048, 0.2, 0.5, 0.7, 1 )
+"points": PoolRealArray( 0, -0.153, 7.002, 0.0208642, 11.1687, 10, -0.0183125, -1.18655, 0.125235, -5.92225, -19.9331, -0.0995909, -2.23112, 0.13098, 1.85739, 0, -0.0553311, -14.2235, 0.021, 11.169, 10.1593, -0.0182562, -1.23372, 0.134313, -5.13678, -19.7393, -0.110585, -0.809866, 0.116313, 0.805191, 0, -0.0571975, -14.7619, 0.219995, 5.40407 ),
+"times": PoolRealArray( 0, 0.0483048, 0.2, 0.5, 0.550294, 0.7, 1 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Sprite:scale:x")
@@ -50,8 +50,82 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 1, -0.056, -0.058, 0.042, 0.048, 1.1, -0.044, -0.002, 0.107, -0.005, 0.9, -0.119, 0, 0.25, 0, 1, -0.0563115, -0.0581546, 0.0420872, 0.0479842, 1.1, -0.0436941, -0.00221217, 0.106587, -0.00547802, 0.9, -0.118553, 0.000206232, 0.25, 0, 1, -0.056, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.056, -0.058, 0.0286883, -0.0942327, 0.9, -0.044, -0.002, 0.107, -0.005, 1.1, -0.119, 0, 0.25, 0, 1, -0.0370748, 0.0739836, 0.037254, -0.0991086, 0.9, -0.0436941, -0.00221217, 0.106587, -0.00547802, 1.1, -0.118553, 0.000206232, 0.25, 0, 1, -0.0428533, 0.0666698, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.05, 0.2, 0.5, 0.55, 0.7, 1 )
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.998875 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_reaction_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Sad"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.0717208, -5.9122, -20, -0.0808489, 0.521336, 0.25, 0, 14.7889, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.00391204, 0.20732, 0.613223, 1.50458 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Sprite:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.0404245, -0.0332877, 0.9, -0.0778318, -0.000237465, 0.420302, -0.00513619, 1.10007, -0.140092, -0.00239551, 0.502787, -0.000435948, 1, -0.149962, -0.00226313, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.210823, 0.610823, 1.50588 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Sprite:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.0534646, 0.0584811, 1.19866, -0.0717208, 0.000610113, 0.419893, 0.012367, 0.899763, -0.148658, 0, 0.504654, 0.0137164, 1, -0.114753, 0.00293922, 0.25, 0 ),
+"times": PoolRealArray( 0.00130401, 0.20732, 0.611565, 1.50719 )
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.49686 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_reaction_finished"
+} ]
 }
 
 [node name="Bichete" type="Node2D"]
@@ -60,12 +134,12 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 1 )
+position = Vector2( 0, 9.45113 )
 texture = ExtResource( 2 )
 vframes = 3
-frame = 1
+frame = 2
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 31.627 )
@@ -82,3 +156,4 @@ script = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Happy = SubResource( 2 )
+anims/Sad = SubResource( 3 )

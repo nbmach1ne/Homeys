@@ -53,26 +53,29 @@ func check_events() -> void:
 			
 func check_neutral() -> void:
 	if hungry_stat.is_over_neutral_limit() or bored_stat.is_over_neutral_limit():
-		bichete.make_neutral()
+		bichete.make_neutral(true)
 		time_since_last_event = 0
 	
 func check_sad() -> void:
 	if hungry_stat.is_over_sad_limit():
-		bichete.make_hungry()
+		bichete.make_hungry(true)
 		time_since_last_event = 0
 	elif bored_stat.is_over_sad_limit():
-		bichete.make_bored()
+		bichete.make_bored(true)
 		time_since_last_event = 0
 		
-func check_bichete_after_minigame() -> void:
-	if hungry_stat.is_ok() and bored_stat.is_ok():
-		bichete.make_happy()
-	elif hungry_stat.is_over_neutral_limit() or bored_stat.is_over_neutral_limit():
-		bichete.make_neutral()
-	elif hungry_stat.is_over_sad_limit():
-		bichete.make_hungry()
+func check_bichete_after_minigame(is_happy_after_minigame: bool) -> void:
+	if hungry_stat.is_over_sad_limit():
+		bichete.make_hungry(false)
 	elif bored_stat.is_over_sad_limit():
-		bichete.make_bored()
+		bichete.make_bored(false)	
+	elif hungry_stat.is_over_neutral_limit() or bored_stat.is_over_neutral_limit():
+		bichete.make_neutral(false)
+	elif hungry_stat.is_ok() and bored_stat.is_ok():
+		bichete.make_happy(false)
+	
+		
+	bichete.react(is_happy_after_minigame)
 
 		
 func show_minigame_cursor(show: bool) -> void:
@@ -122,16 +125,17 @@ func _on_FoodButton_button_down() -> void:
 	else:
 		start_food_minigame()
 
-func _on_FoodMinigame_complete_minigame() -> void:
+func _on_FoodMinigame_complete_minigame(param: int) -> void:
 	state = Global.GameState.IDLE
-	hungry_stat.decrease_value(food_minigame_points)
+	if param == food_minigame_dislike:
+		hungry_stat.increase_value(food_minigame_points)
+	else:
+		hungry_stat.decrease_value(food_minigame_points)
 	time_since_last_event = 0
-	check_bichete_after_minigame()
-	# make the bichete react
+	check_bichete_after_minigame(param != food_minigame_dislike)
 
-func _on_PetMinigame_complete_minigame() -> void:
+func _on_PetMinigame_complete_minigame(param: int) -> void:
 	state = Global.GameState.IDLE
 	bored_stat.decrease_value(pet_minigame_points)
 	time_since_last_event = 0
-	check_bichete_after_minigame()
-	# make the bichete react
+	check_bichete_after_minigame(true)

@@ -33,7 +33,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if time >= time_between_increases:
-		increase_value()
+		increase_value(1)
 	else:
 		time += delta
 
@@ -42,14 +42,14 @@ func is_ok() -> bool:
 	return value < neutral_limit
 
 func is_over_neutral_limit() -> bool:
-	return value >= neutral_limit and value < sad_limit
+	return value >= neutral_limit
 	
 func is_over_sad_limit() -> bool:
 	return value >= sad_limit
 
-func increase_value() -> void:
+func increase_value(amount: int) -> void:
 	time = 0
-	value = min(value + 1, MAX_VALUE)
+	value = min(value + amount, MAX_VALUE)
 	
 	if value == sad_limit:
 		emit_signal("sad_limit_reached")

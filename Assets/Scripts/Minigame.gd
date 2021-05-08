@@ -17,7 +17,7 @@ onready var particles = $Cursor/Particles
 # SIGNALS
 
 signal start_minigame_action
-signal complete_minigame
+signal complete_minigame(param)
 
 
 # METHODS
@@ -49,10 +49,10 @@ func cancel_minigame(complete_callback: FuncRef) -> void:
 	state = Global.MinigameState.WAITING_SELECTION
 	HUD.transition_out(complete_callback)
 	
-func complete_minigame() -> void:
+func complete_minigame(param: int) -> void:
 	state = Global.MinigameState.NOT_SELECTED
 	cursor.visible = false
-	emit_signal("complete_minigame")
+	emit_signal("complete_minigame", param)
 	
 func start_action() -> void:
 	state = Global.MinigameState.ACTION

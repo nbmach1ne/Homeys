@@ -11,40 +11,59 @@ var emotion
 
 onready var sprite = $Sprite
 onready var bubble = $Bubble
+onready var anim = $AnimationPlayer
 
 
 # METHODS
 
 func _ready() -> void:
 	emotion = Global.Emotion.HAPPY
-	sprite.frame = 1
+	set_sprite()
 
 
 
-func make_neutral() -> void:
+func make_neutral(set_sprite: bool) -> void:
 	emotion = Global.Emotion.NEUTRAL
-	sprite.frame = 0
+	if set_sprite: set_sprite()
 	bubble.hide_bubble()
 	
 	if OS.is_debug_build(): print("[Bichete] Neutral")
 
-func make_happy() -> void:
+func make_happy(set_sprite: bool) -> void:
 	emotion = Global.Emotion.HAPPY
-	sprite.frame = 1
+	if set_sprite: set_sprite()
 	bubble.hide_bubble()
 	
 	if OS.is_debug_build(): print("[Bichete] Happy :)")
 	
-func make_hungry() -> void:
+func make_hungry(set_sprite: bool) -> void:
 	emotion = Global.Emotion.HUNGRY
-	sprite.frame = 2
+	if set_sprite: set_sprite()
 	bubble.show_bubble(emotion)
 	
 	if OS.is_debug_build(): print("[Bichete] Hungy :(")
 	
-func make_bored() -> void:
+func make_bored(set_sprite: bool) -> void:
 	emotion = Global.Emotion.BORED
-	sprite.frame = 2
+	if set_sprite: set_sprite()
 	bubble.show_bubble(emotion)
 	
 	if OS.is_debug_build(): print("[Bichete] Bored :(")
+
+func react(isHappyReaction: bool) -> void:
+	if isHappyReaction:
+		anim.play("Happy")
+	else:
+		anim.play("Sad")
+		
+func on_reaction_finished() -> void:
+	set_sprite()
+	
+func set_sprite() -> void:
+	match emotion:
+		Global.Emotion.NEUTRAL:
+			sprite.frame = 0
+		Global.Emotion.HAPPY:
+			sprite.frame = 1
+		Global.Emotion.BORED, Global.Emotion.HUNGRY:
+			sprite.frame = 2
