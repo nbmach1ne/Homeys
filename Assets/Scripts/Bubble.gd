@@ -12,8 +12,8 @@ var bubble_hand_atlas = load("res://Assets/Sprites/bubble_hand.png")
 var bubble_food_atlas = load("res://Assets/Sprites/bubble_food.png")
 
 var state
-var high_pos = Vector2(55, -75)
-var low_pos = Vector2(55, -65)
+var high_pos = Vector2(0, -10)
+var low_pos = Vector2(0, 0)
 var idle_source_pos
 var idle_target_pos
 

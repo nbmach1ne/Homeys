@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Sprites/Food/cheese_spritesheet.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/Food/aceituna_spritesheet.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sprites/Dependent/buttons_spritesheet.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/background.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Dependent/background.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sprites/food_UI.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Sprites/Dependent/tamagotchi_case.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Scripts/Stat.gd" type="Script" id=15]
@@ -121,7 +121,7 @@ min_time_between_events = 14
 food_minigame_dislike = 1
 
 [node name="Bichete" parent="BicheteManager" instance=ExtResource( 4 )]
-position = Vector2( 360, 287.358 )
+position = Vector2( 347.264, 279.866 )
 
 [node name="FoodMinigame" type="Node2D" parent="BicheteManager"]
 script = ExtResource( 1 )

@@ -10,7 +10,7 @@ export(Global.Food) var dislike_food = Global.Food.OLIVE
 var emotion
 
 onready var sprite = $Sprite
-onready var bubble = $Bubble
+onready var bubble = $BubbleHolder/Bubble
 onready var anim = $AnimationPlayer
 
 
