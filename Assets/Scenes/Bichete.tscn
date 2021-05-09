@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Shaders/wobbly_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/Dependent/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scripts/Bichete.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sprites/bubble_food.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Scripts/Bubble.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Sprites/particles_test.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 96.031, 62.5151 )
+extents = Vector2( 96.031, 76.9421 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Happy"
@@ -66,6 +67,26 @@ tracks/4/keys = {
 "args": [  ],
 "method": "on_reaction_finished"
 } ]
+}
+tracks/5/type = "animation"
+tracks/5/path = NodePath("HappyParticlesHolder/Left/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": PoolStringArray( "Happy" ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "animation"
+tracks/6/path = NodePath("HappyParticlesHolder/Right/AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": PoolStringArray( "Happy" ),
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -127,6 +148,386 @@ tracks/4/keys = {
 "method": "on_reaction_finished"
 } ]
 }
+tracks/5/type = "animation"
+tracks/5/path = NodePath("SadParticlesHolder/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": PoolStringArray( "Sad" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Happy"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Heart1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Heart2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Heart3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Heart1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Heart2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Heart3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Happy"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Heart1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Heart2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Heart3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Heart1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Heart2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Heart3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Sad"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Holder/Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Holder4/Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Holder2/Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Holder5/Sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Holder3/Sprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Holder6/Sprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Holder/Sprite:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Holder4/Sprite:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Holder2/Sprite:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 0.9, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Holder5/Sprite:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Holder3/Sprite:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.9, 1.1, 1.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Holder6/Sprite:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1, 1.2, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Holder/Sprite:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 10 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Holder4/Sprite:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 10 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Holder2/Sprite:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 10 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Holder5/Sprite:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 10 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Holder3/Sprite:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0.9, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 10 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Holder6/Sprite:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 1, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 10 ) ]
+}
 
 [node name="Bichete" type="Node2D"]
 scale = Vector2( 1.02013, 0.97987 )
@@ -134,9 +535,11 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 1 )
-position = Vector2( 0, 9.45113 )
+position = Vector2( 0, 0.00164396 )
+scale = Vector2( 0.999964, 1.00007 )
 texture = ExtResource( 2 )
 vframes = 3
+frame = 2
 
 [node name="BubbleHolder" type="Node2D" parent="."]
 position = Vector2( 118.125, -78.016 )
@@ -160,3 +563,138 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Happy = SubResource( 2 )
 anims/Sad = SubResource( 3 )
+
+[node name="HappyParticlesHolder" type="Node2D" parent="."]
+
+[node name="Left" type="Node2D" parent="HappyParticlesHolder"]
+position = Vector2( -73.8775, -71.9898 )
+rotation = -0.261799
+scale = Vector2( -1, 1 )
+
+[node name="Heart1" type="Sprite" parent="HappyParticlesHolder/Left"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 5
+
+[node name="Heart2" type="Sprite" parent="HappyParticlesHolder/Left"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 16.1561, 12.615 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 4
+
+[node name="Heart3" type="Sprite" parent="HappyParticlesHolder/Left"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -18.3593, 8.79224 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HappyParticlesHolder/Left"]
+anims/Happy = SubResource( 4 )
+
+[node name="Right" type="Node2D" parent="HappyParticlesHolder"]
+position = Vector2( 94.7917, -71.901 )
+rotation = 0.261799
+
+[node name="Heart1" type="Sprite" parent="HappyParticlesHolder/Right"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 5
+
+[node name="Heart2" type="Sprite" parent="HappyParticlesHolder/Right"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 16.1561, 12.615 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 4
+
+[node name="Heart3" type="Sprite" parent="HappyParticlesHolder/Right"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -18.3593, 8.79224 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HappyParticlesHolder/Right"]
+anims/Happy = SubResource( 5 )
+
+[node name="SadParticlesHolder" type="Node2D" parent="."]
+
+[node name="Holder" type="Node2D" parent="SadParticlesHolder"]
+position = Vector2( -71.0159, -39.217 )
+
+[node name="Sprite" type="Sprite" parent="SadParticlesHolder/Holder"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 10 )
+texture = ExtResource( 6 )
+hframes = 6
+
+[node name="Holder4" type="Node2D" parent="SadParticlesHolder"]
+position = Vector2( 83.3665, 48.2177 )
+scale = Vector2( -1, 1 )
+
+[node name="Sprite" type="Sprite" parent="SadParticlesHolder/Holder4"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 10 )
+texture = ExtResource( 6 )
+hframes = 6
+
+[node name="Holder2" type="Node2D" parent="SadParticlesHolder"]
+position = Vector2( 0.617513, -72.005 )
+
+[node name="Sprite" type="Sprite" parent="SadParticlesHolder/Holder2"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 10 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 1
+
+[node name="Holder5" type="Node2D" parent="SadParticlesHolder"]
+position = Vector2( -62.988, 45.0032 )
+scale = Vector2( -1, 1 )
+
+[node name="Sprite" type="Sprite" parent="SadParticlesHolder/Holder5"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 10 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 1
+
+[node name="Holder3" type="Node2D" parent="SadParticlesHolder"]
+position = Vector2( 73.4861, -50.7893 )
+
+[node name="Sprite" type="Sprite" parent="SadParticlesHolder/Holder3"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 10 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 2
+
+[node name="Holder6" type="Node2D" parent="SadParticlesHolder"]
+position = Vector2( 21.6136, 18.6441 )
+scale = Vector2( -1, 1 )
+
+[node name="Sprite" type="Sprite" parent="SadParticlesHolder/Holder6"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 10 )
+texture = ExtResource( 6 )
+hframes = 6
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SadParticlesHolder"]
+anims/Sad = SubResource( 6 )
