@@ -81,27 +81,27 @@ region = Rect2( 97, 0, 97, 60 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 11 )
-region = Rect2( 97, 120, 97, 60 )
+region = Rect2( 0, 120, 97, 70 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 11 )
-region = Rect2( 0, 120, 97, 60 )
+region = Rect2( 97, 120, 97, 70 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 11 )
-region = Rect2( 0, 240, 97, 60 )
+region = Rect2( 25, 250, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 11 )
-region = Rect2( 97, 240, 97, 60 )
+region = Rect2( 122, 250, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 11 )
-region = Rect2( 0, 180, 97, 60 )
+region = Rect2( 25, 190, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 11 )
-region = Rect2( 97, 180, 97, 60 )
+region = Rect2( 122, 190, 50, 50 )
 
 [node name="Game" type="Node2D"]
 
@@ -310,15 +310,15 @@ __meta__ = {
 margin_left = 564.443
 margin_top = 349.695
 margin_right = 661.443
-margin_bottom = 409.695
+margin_bottom = 419.695
 texture_normal = SubResource( 13 )
 texture_pressed = SubResource( 14 )
 
 [node name="VolumeDown" type="TextureButton" parent="HUD"]
-margin_left = 31.8228
-margin_top = 338.866
-margin_right = 128.823
-margin_bottom = 398.866
+margin_left = 59.8701
+margin_top = 346.757
+margin_right = 156.87
+margin_bottom = 406.757
 texture_normal = SubResource( 15 )
 texture_pressed = SubResource( 16 )
 __meta__ = {
@@ -326,10 +326,10 @@ __meta__ = {
 }
 
 [node name="VolumeUp" type="TextureButton" parent="HUD"]
-margin_left = 80.7272
-margin_top = 361.13
-margin_right = 177.727
-margin_bottom = 421.13
+margin_left = 105.395
+margin_top = 366.111
+margin_right = 202.395
+margin_bottom = 426.111
 texture_normal = SubResource( 17 )
 texture_pressed = SubResource( 18 )
 [connection signal="complete_minigame" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_complete_minigame"]
