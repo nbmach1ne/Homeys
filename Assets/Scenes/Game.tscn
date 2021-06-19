@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/Scripts/FoodMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scripts/HUD.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/Scripts/HUDPetMinigame.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Scripts/HUDFoodMinigame.gd" type="Script" id=19]
 [ext_resource path="res://Assets/Sprites/mascara.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/light.jpg" type="Texture" id=21]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -268,6 +269,30 @@ color_ramp = SubResource( 19 )
 
 [node name="HUD" type="Control" parent="."]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftLight" type="TextureRect" parent="HUD"]
+modulate = Color( 0.529412, 1, 0.513726, 1 )
+margin_left = 579.0
+margin_top = 110.0
+margin_right = 598.0
+margin_bottom = 145.0
+texture = ExtResource( 21 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightLight" type="TextureRect" parent="HUD"]
+modulate = Color( 0.529412, 1, 0.513726, 1 )
+margin_left = 599.474
+margin_top = 114.095
+margin_right = 618.474
+margin_bottom = 149.095
+texture = ExtResource( 21 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
