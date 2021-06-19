@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/Scripts/FoodMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scripts/HUD.gd" type="Script" id=2]
@@ -58,6 +58,10 @@ region = Rect2( 0, 0, 73, 76 )
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 76, 73, 76 )
+
+[sub_resource type="Gradient" id=19]
+offsets = PoolRealArray( 0, 0.929619, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.980392, 0.980392, 0.980392, 1, 0.980392, 0.980392, 0.980392, 0 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 11 )
@@ -197,13 +201,6 @@ position = Vector2( 360, 364.732 )
 texture = ExtResource( 10 )
 vframes = 4
 
-[node name="Particles" parent="BicheteManager/FoodMinigame/Cursor" instance=ExtResource( 3 )]
-visible = false
-show_behind_parent = true
-light_mask = 1024
-position = Vector2( -1.33481, -27.061 )
-scale = Vector2( 2, 2 )
-
 [node name="PetMinigame" type="Node2D" parent="BicheteManager"]
 script = ExtResource( 5 )
 
@@ -254,7 +251,7 @@ __meta__ = {
 [node name="Cursor" type="Sprite" parent="BicheteManager/PetMinigame"]
 visible = false
 light_mask = -2147482624
-position = Vector2( 358.665, 382.926 )
+position = Vector2( 358.22, 376.244 )
 texture = ExtResource( 8 )
 vframes = 2
 
@@ -262,8 +259,12 @@ vframes = 2
 visible = false
 show_behind_parent = true
 light_mask = 1024
-position = Vector2( 0, -45.2548 )
-scale = Vector2( 2, 2 )
+position = Vector2( 0, -13.1824 )
+lifetime = 1.5
+emission_shape = 1
+emission_sphere_radius = 15.0
+scale_amount_random = 0.5
+color_ramp = SubResource( 19 )
 
 [node name="HUD" type="Control" parent="."]
 script = ExtResource( 2 )

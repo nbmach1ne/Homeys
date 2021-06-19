@@ -56,11 +56,15 @@ func complete_minigame(param: int) -> void:
 	
 func start_action() -> void:
 	state = Global.MinigameState.ACTION
-	particles.visible = true
+	
+	if particles != null:
+		particles.visible = true
 
 func stop_action() -> void:
 	state = Global.MinigameState.SELECTED
-	particles.visible = false
+	
+	if particles != null:
+		particles.visible = false
 
 func process_action(delta: float) -> void:
 	pass
