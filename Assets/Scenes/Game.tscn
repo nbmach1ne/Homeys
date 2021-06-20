@@ -54,11 +54,11 @@ region = Rect2( 0, 134, 104, 134 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 73, 76 )
+region = Rect2( 0, 0, 73, 73 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 8 )
-region = Rect2( 0, 76, 73, 76 )
+region = Rect2( 0, 73, 73, 73 )
 
 [sub_resource type="Gradient" id=9]
 offsets = PoolRealArray( 0, 0.929619, 1 )
