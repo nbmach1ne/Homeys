@@ -45,7 +45,7 @@ func show_bubble(emotion: int) -> void:
 	idle_source_pos = high_pos
 	idle_target_pos = low_pos
 	tween.interpolate_property(self, "modulate", source_color, target_color, 1, Tween.TRANS_EXPO, Tween.EASE_OUT);
-	tween.interpolate_property(self, "frame", 0, 11, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property(self, "frame", 0, 7, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.interpolate_callback(self, tween.get_runtime(), "idle")
 	tween.start()
 	

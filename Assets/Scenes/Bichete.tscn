@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Shaders/wobbly_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/Dependent/spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Scripts/Bichete.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Sprites/bubble_food.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/bubble_hand.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Scripts/Bubble.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Sprites/particles_test.png" type="Texture" id=6]
 
@@ -635,12 +635,12 @@ vframes = 3
 frame = 2
 
 [node name="BubbleHolder" type="Node2D" parent="."]
-position = Vector2( 106.022, -67.7063 )
+position = Vector2( 99.1519, -56.8082 )
 
 [node name="Bubble" type="Sprite" parent="BubbleHolder"]
 texture = ExtResource( 4 )
-vframes = 12
-frame = 11
+vframes = 8
+frame = 7
 script = ExtResource( 5 )
 
 [node name="Tween" type="Tween" parent="BubbleHolder/Bubble"]
