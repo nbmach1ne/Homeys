@@ -542,11 +542,9 @@ vframes = 3
 frame = 2
 
 [node name="BubbleHolder" type="Node2D" parent="."]
-position = Vector2( 118.125, -78.016 )
-scale = Vector2( 1, 1 )
+position = Vector2( 106.022, -67.7063 )
 
 [node name="Bubble" type="Sprite" parent="BubbleHolder"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 vframes = 12
 frame = 11

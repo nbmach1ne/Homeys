@@ -60,47 +60,47 @@ region = Rect2( 0, 0, 73, 76 )
 atlas = ExtResource( 8 )
 region = Rect2( 0, 76, 73, 76 )
 
-[sub_resource type="Gradient" id=19]
+[sub_resource type="Gradient" id=9]
 offsets = PoolRealArray( 0, 0.929619, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0.980392, 0.980392, 0.980392, 1, 0.980392, 0.980392, 0.980392, 0 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 60, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 60, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 0, 97, 60 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 120, 97, 70 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 11 )
 region = Rect2( 97, 120, 97, 70 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 11 )
 region = Rect2( 25, 250, 50, 50 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 11 )
 region = Rect2( 122, 250, 50, 50 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 11 )
 region = Rect2( 25, 190, 50, 50 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 11 )
 region = Rect2( 122, 190, 50, 50 )
 
@@ -126,7 +126,7 @@ min_time_between_events = 14
 food_minigame_dislike = 1
 
 [node name="Bichete" parent="BicheteManager" instance=ExtResource( 4 )]
-position = Vector2( 347.264, 279.866 )
+position = Vector2( 354.606, 267.852 )
 
 [node name="FoodMinigame" type="Node2D" parent="BicheteManager"]
 script = ExtResource( 1 )
@@ -265,7 +265,7 @@ lifetime = 1.5
 emission_shape = 1
 emission_sphere_radius = 15.0
 scale_amount_random = 0.5
-color_ramp = SubResource( 19 )
+color_ramp = SubResource( 9 )
 
 [node name="HUD" type="Control" parent="."]
 script = ExtResource( 2 )
@@ -313,8 +313,8 @@ margin_top = 187.284
 margin_right = 662.409
 margin_bottom = 247.284
 shortcut_in_tooltip = false
-texture_normal = SubResource( 9 )
-texture_pressed = SubResource( 10 )
+texture_normal = SubResource( 10 )
+texture_pressed = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -325,8 +325,8 @@ margin_top = 253.159
 margin_right = 661.743
 margin_bottom = 313.159
 shortcut_in_tooltip = false
-texture_normal = SubResource( 11 )
-texture_pressed = SubResource( 12 )
+texture_normal = SubResource( 12 )
+texture_pressed = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -336,16 +336,16 @@ margin_left = 564.443
 margin_top = 349.695
 margin_right = 661.443
 margin_bottom = 419.695
-texture_normal = SubResource( 13 )
-texture_pressed = SubResource( 14 )
+texture_normal = SubResource( 14 )
+texture_pressed = SubResource( 15 )
 
 [node name="VolumeDown" type="TextureButton" parent="HUD"]
 margin_left = 59.8701
 margin_top = 346.757
 margin_right = 156.87
 margin_bottom = 406.757
-texture_normal = SubResource( 15 )
-texture_pressed = SubResource( 16 )
+texture_normal = SubResource( 16 )
+texture_pressed = SubResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -355,8 +355,8 @@ margin_left = 105.395
 margin_top = 366.111
 margin_right = 202.395
 margin_bottom = 426.111
-texture_normal = SubResource( 17 )
-texture_pressed = SubResource( 18 )
+texture_normal = SubResource( 18 )
+texture_pressed = SubResource( 19 )
 [connection signal="complete_minigame" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_complete_minigame"]
 [connection signal="sad_limit_reached" from="BicheteManager/FoodMinigame/HungryStat" to="BicheteManager" method="_on_HungryStat_sad_limit_reached"]
 [connection signal="button_down" from="BicheteManager/FoodMinigame/HUD/Olive" to="BicheteManager/FoodMinigame" method="_on_Olive_button_down"]
