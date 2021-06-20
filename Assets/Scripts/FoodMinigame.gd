@@ -14,6 +14,10 @@ var mushroom_texture = load("res://Assets/Sprites/Food/mushroom_spritesheet.png"
 var step
 var option
 
+# SIGNAL
+
+signal food_selected(selection)
+
 
 # METHODS
 
@@ -44,7 +48,7 @@ func process_action(delta: float) -> void:
 		step += 1
 		time = 0
 		if step > total_steps:
-			complete_minigame(option)
+			complete_minigame()
 		else:
 			cursor.frame = step
 
@@ -57,15 +61,21 @@ func _on_Olive_button_down() -> void:
 	set_cursor_texture(Global.Food.OLIVE)
 	HUD.hide_option(Global.Food.OLIVE)
 	.option_selected()
+	
+	emit_signal("food_selected", Global.Food.OLIVE)
 
 func _on_Cheese_button_down() -> void:
 	cursor.frame = 1
 	set_cursor_texture(Global.Food.CHEESE)
 	HUD.hide_option(Global.Food.CHEESE)
 	.option_selected()
+	
+	emit_signal("food_selected", Global.Food.CHEESE)
 
 func _on_Mushroom_button_down() -> void:
 	cursor.frame = 1
 	set_cursor_texture(Global.Food.MUSHROOM)
 	HUD.hide_option(Global.Food.MUSHROOM)
 	.option_selected()
+	
+	emit_signal("food_selected", Global.Food.MUSHROOM)

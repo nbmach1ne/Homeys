@@ -12,6 +12,7 @@ export var pet_minigame_points = 4
 
 var state = Global.GameState.IDLE
 var time_since_last_event
+var selected_food = Global.Food.NONE
 
 onready var bichete = $Bichete
 onready var food_minigame = $FoodMinigame
@@ -125,17 +126,39 @@ func _on_FoodButton_button_down() -> void:
 	else:
 		start_food_minigame()
 
-func _on_FoodMinigame_complete_minigame(param: int) -> void:
+func _on_FoodMinigame_complete_minigame() -> void:
 	state = Global.GameState.IDLE
-	if param == food_minigame_dislike:
+	if selected_food == food_minigame_dislike:
 		hungry_stat.increase_value(food_minigame_points)
 	else:
 		hungry_stat.decrease_value(food_minigame_points)
 	time_since_last_event = 0
-	check_bichete_after_minigame(param != food_minigame_dislike)
+	check_bichete_after_minigame(selected_food != food_minigame_dislike)
+	selected_food = Global.Food.NONE
 
-func _on_PetMinigame_complete_minigame(param: int) -> void:
+func _on_PetMinigame_complete_minigame() -> void:
 	state = Global.GameState.IDLE
 	bored_stat.decrease_value(pet_minigame_points)
 	time_since_last_event = 0
 	check_bichete_after_minigame(true)
+
+
+func _on_FoodMinigame_start_action() -> void:
+	bichete.react_on_loop(selected_food != food_minigame_dislike)
+
+
+func _on_FoodMinigame_stop_action() -> void:
+	bichete.stop_reaction()
+
+
+func _on_PetMinigame_start_action() -> void:
+	bichete.react_on_loop(true)
+
+
+func _on_PetMinigame_stop_action() -> void:
+	bichete.stop_reaction()
+
+
+
+func _on_FoodMinigame_food_selected(selection: int) -> void:
+	selected_food = selection

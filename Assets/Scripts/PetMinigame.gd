@@ -7,7 +7,7 @@ func process_action(delta: float) -> void:
 	time += delta
 	if time >= total_time:
 		time = 0
-		complete_minigame(-1)
+		complete_minigame()
 
 func stop_action() -> void:
 	.stop_action()

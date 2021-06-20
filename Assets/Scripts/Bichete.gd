@@ -57,7 +57,20 @@ func react(isHappyReaction: bool) -> void:
 		anim.play("Sad")
 		
 func on_reaction_finished() -> void:
+	stop_reaction()
+	
+func react_on_loop(isHappyReaction: bool) -> void:
+	print("asdafsafass")
+	if isHappyReaction:
+		anim.play("Happy_loop")
+	else:
+		anim.play("Sad_loop")
+		
+func stop_reaction() -> void:
+	if anim.is_playing():
+		anim.stop(true)
 	set_sprite()
+	
 	
 func set_sprite() -> void:
 	match emotion:

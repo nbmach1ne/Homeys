@@ -358,11 +358,16 @@ margin_bottom = 426.111
 texture_normal = SubResource( 18 )
 texture_pressed = SubResource( 19 )
 [connection signal="complete_minigame" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_complete_minigame"]
+[connection signal="food_selected" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_food_selected"]
+[connection signal="start_action" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_start_action"]
+[connection signal="stop_action" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_stop_action"]
 [connection signal="sad_limit_reached" from="BicheteManager/FoodMinigame/HungryStat" to="BicheteManager" method="_on_HungryStat_sad_limit_reached"]
 [connection signal="button_down" from="BicheteManager/FoodMinigame/HUD/Olive" to="BicheteManager/FoodMinigame" method="_on_Olive_button_down"]
 [connection signal="button_down" from="BicheteManager/FoodMinigame/HUD/Cheese" to="BicheteManager/FoodMinigame" method="_on_Cheese_button_down"]
 [connection signal="button_down" from="BicheteManager/FoodMinigame/HUD/Mushroom" to="BicheteManager/FoodMinigame" method="_on_Mushroom_button_down"]
 [connection signal="complete_minigame" from="BicheteManager/PetMinigame" to="BicheteManager" method="_on_PetMinigame_complete_minigame"]
+[connection signal="start_action" from="BicheteManager/PetMinigame" to="BicheteManager" method="_on_PetMinigame_start_action"]
+[connection signal="stop_action" from="BicheteManager/PetMinigame" to="BicheteManager" method="_on_PetMinigame_stop_action"]
 [connection signal="sad_limit_reached" from="BicheteManager/PetMinigame/BoredStat" to="BicheteManager" method="_on_BoredStat_sad_limit_reached"]
 [connection signal="button_down" from="BicheteManager/PetMinigame/HUD/Hand" to="BicheteManager/PetMinigame" method="_on_Hand_button_down"]
 [connection signal="button_down" from="HUD/PetButton" to="BicheteManager" method="_on_PetButton_button_down"]
