@@ -12,7 +12,9 @@ var over_bichete
 var time
 onready var HUD = $HUD
 onready var cursor = $Cursor
-onready var particles = $Cursor/Particles
+onready var cursor_sprite = $Cursor/Sprite
+onready var cursor_animation = $Cursor/AnimationPlayer
+onready var cursor_particles = $Cursor/Particles
 
 # SIGNALS
 
@@ -53,21 +55,28 @@ func cancel_minigame(complete_callback: FuncRef) -> void:
 func complete_minigame() -> void:
 	state = Global.MinigameState.NOT_SELECTED
 	cursor.visible = false
+
 	emit_signal("complete_minigame")
 	
 func start_action() -> void:
 	state = Global.MinigameState.ACTION
 	
-	if particles != null:
-		particles.visible = true
+	if cursor_animation != null:
+		cursor_animation.play("Feedback")
+	
+	if cursor_particles != null:
+		cursor_particles.visible = true
 		
 	emit_signal("start_action")
 
 func stop_action() -> void:
 	state = Global.MinigameState.SELECTED
 	
-	if particles != null:
-		particles.visible = false
+	if cursor_animation != null:
+		cursor_animation.play("Idle")
+	
+	if cursor_particles != null:
+		cursor_particles.visible = false
 		
 	emit_signal("stop_action")
 

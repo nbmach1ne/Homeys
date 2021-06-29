@@ -30,11 +30,11 @@ func set_cursor_texture(food: int) -> void:
 		
 		match food:
 			Global.Food.OLIVE:
-				cursor.texture = olive_texture
+				cursor_sprite.texture = olive_texture
 			Global.Food.CHEESE:
-				cursor.texture = cheese_texture
+				cursor_sprite.texture = cheese_texture
 			Global.Food.MUSHROOM:
-				cursor.texture = mushroom_texture
+				cursor_sprite.texture = mushroom_texture
 				
 		option = food
 				
@@ -50,14 +50,14 @@ func process_action(delta: float) -> void:
 		if step > total_steps:
 			complete_minigame()
 		else:
-			cursor.frame = step
+			cursor_sprite.frame = step
 
 
 
 # SIGNAL HANDLERS
 
 func _on_Olive_button_down() -> void:
-	cursor.frame = 1
+	cursor_sprite.frame = 1
 	set_cursor_texture(Global.Food.OLIVE)
 	HUD.hide_option(Global.Food.OLIVE)
 	.option_selected()
@@ -65,7 +65,7 @@ func _on_Olive_button_down() -> void:
 	emit_signal("food_selected", Global.Food.OLIVE)
 
 func _on_Cheese_button_down() -> void:
-	cursor.frame = 1
+	cursor_sprite.frame = 1
 	set_cursor_texture(Global.Food.CHEESE)
 	HUD.hide_option(Global.Food.CHEESE)
 	.option_selected()
@@ -73,7 +73,7 @@ func _on_Cheese_button_down() -> void:
 	emit_signal("food_selected", Global.Food.CHEESE)
 
 func _on_Mushroom_button_down() -> void:
-	cursor.frame = 1
+	cursor_sprite.frame = 1
 	set_cursor_texture(Global.Food.MUSHROOM)
 	HUD.hide_option(Global.Food.MUSHROOM)
 	.option_selected()
