@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Assets/Scripts/FoodMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scripts/HUD.gd" type="Script" id=2]
@@ -58,7 +58,7 @@ region = Rect2( 0, 73, 73, 73 )
 offsets = PoolRealArray( 0, 0.929619, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0.980392, 0.980392, 0.980392, 1, 0.980392, 0.980392, 0.980392, 0 )
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=10]
 resource_name = "Feedback"
 loop = true
 step = 0.05
@@ -87,7 +87,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.9 ), Vector2( 1, 1 ), Vector2( 1.1, 0.9 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=11]
 resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:rotation_degrees")
@@ -114,43 +114,60 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 11 )
-region = Rect2( 0, 60, 97, 60 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 11 )
-region = Rect2( 97, 60, 97, 60 )
+[sub_resource type="Animation" id=22]
+resource_name = "light_anim"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 2, 2.4, 2.5, 2.6, 3, 3.1, 3.4, 3.5, 3.6, 3.7, 4.3, 4.4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, true, false, true, false, true, true, true, false, true, true, false, false, true, false, true, true, false, true ]
+}
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 11 )
-region = Rect2( 0, 0, 97, 60 )
+region = Rect2( 0, 60, 97, 60 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 11 )
-region = Rect2( 97, 0, 97, 60 )
+region = Rect2( 97, 60, 97, 60 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 11 )
-region = Rect2( 0, 120, 97, 70 )
+region = Rect2( 0, 0, 97, 60 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 11 )
-region = Rect2( 97, 120, 97, 70 )
+region = Rect2( 97, 0, 97, 60 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 11 )
-region = Rect2( 25, 250, 50, 50 )
+region = Rect2( 0, 120, 97, 70 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 11 )
-region = Rect2( 122, 250, 50, 50 )
+region = Rect2( 97, 120, 97, 70 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 11 )
-region = Rect2( 25, 190, 50, 50 )
+region = Rect2( 25, 250, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 11 )
+region = Rect2( 122, 250, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 11 )
+region = Rect2( 25, 190, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 11 )
 region = Rect2( 122, 190, 50, 50 )
 
@@ -176,7 +193,7 @@ min_time_between_events = 14
 food_minigame_dislike = 1
 
 [node name="Bichete" parent="BicheteManager" instance=ExtResource( 4 )]
-position = Vector2( 354.606, 267.852 )
+position = Vector2( 354.606, 276.041 )
 
 [node name="FoodMinigame" type="Node2D" parent="BicheteManager"]
 script = ExtResource( 1 )
@@ -324,8 +341,8 @@ scale_amount_random = 0.5
 color_ramp = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BicheteManager/PetMinigame/Cursor"]
-anims/Feedback = SubResource( 20 )
-anims/Idle = SubResource( 21 )
+anims/Feedback = SubResource( 10 )
+anims/Idle = SubResource( 11 )
 
 [node name="HUD" type="Control" parent="."]
 script = ExtResource( 2 )
@@ -333,8 +350,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LeftLight" type="TextureRect" parent="HUD"]
-modulate = Color( 0.529412, 1, 0.513726, 1 )
+[node name="LeftLightBg" type="TextureRect" parent="HUD"]
+modulate = Color( 0.0941176, 0.321569, 0.0862745, 1 )
 margin_left = 579.0
 margin_top = 110.0
 margin_right = 598.0
@@ -345,8 +362,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LeftLight" type="TextureRect" parent="HUD"]
+visible = false
+modulate = Color( 0.2, 1, 0.588235, 1 )
+margin_left = 579.0
+margin_top = 110.0
+margin_right = 598.0
+margin_bottom = 145.0
+texture = ExtResource( 21 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/LeftLight"]
+autoplay = "light_anim"
+anims/light_anim = SubResource( 22 )
+
 [node name="RightLight" type="TextureRect" parent="HUD"]
-modulate = Color( 0.529412, 1, 0.513726, 1 )
+modulate = Color( 1, 0.376471, 0, 1 )
 margin_left = 599.474
 margin_top = 114.095
 margin_right = 618.474
@@ -373,8 +407,8 @@ margin_top = 187.284
 margin_right = 662.409
 margin_bottom = 247.284
 shortcut_in_tooltip = false
-texture_normal = SubResource( 10 )
-texture_pressed = SubResource( 11 )
+texture_normal = SubResource( 12 )
+texture_pressed = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -385,8 +419,8 @@ margin_top = 253.159
 margin_right = 661.743
 margin_bottom = 313.159
 shortcut_in_tooltip = false
-texture_normal = SubResource( 12 )
-texture_pressed = SubResource( 13 )
+texture_normal = SubResource( 14 )
+texture_pressed = SubResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -396,16 +430,16 @@ margin_left = 564.443
 margin_top = 349.695
 margin_right = 661.443
 margin_bottom = 419.695
-texture_normal = SubResource( 14 )
-texture_pressed = SubResource( 15 )
+texture_normal = SubResource( 16 )
+texture_pressed = SubResource( 17 )
 
 [node name="VolumeDown" type="TextureButton" parent="HUD"]
 margin_left = 59.8701
 margin_top = 346.757
 margin_right = 156.87
 margin_bottom = 406.757
-texture_normal = SubResource( 16 )
-texture_pressed = SubResource( 17 )
+texture_normal = SubResource( 18 )
+texture_pressed = SubResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -415,8 +449,8 @@ margin_left = 105.395
 margin_top = 366.111
 margin_right = 202.395
 margin_bottom = 426.111
-texture_normal = SubResource( 18 )
-texture_pressed = SubResource( 19 )
+texture_normal = SubResource( 20 )
+texture_pressed = SubResource( 21 )
 [connection signal="complete_minigame" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_complete_minigame"]
 [connection signal="food_selected" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_food_selected"]
 [connection signal="start_action" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_start_action"]
