@@ -59,12 +59,15 @@ func react(isHappyReaction: bool) -> void:
 func on_reaction_finished() -> void:
 	stop_reaction()
 	
-func react_on_loop(isHappyReaction: bool) -> void:
+func react_on_loop(isFoodReaction: bool, isHappyReaction: bool) -> void:
 	print("asdafsafass")
-	if isHappyReaction:
-		anim.play("Happy_loop")
+	if isFoodReaction:
+		if isHappyReaction:
+			anim.play("Happy_loop_food")
+		else:
+			anim.play("Sad_loop_food")
 	else:
-		anim.play("Sad_loop")
+		anim.play("Happy_loop")
 		
 func stop_reaction() -> void:
 	if anim.is_playing():

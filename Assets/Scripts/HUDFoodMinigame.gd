@@ -20,16 +20,19 @@ func transition_in(complete_callback: FuncRef) -> void:
 	source_pos = Vector2(olive_button.get_position().x, 440)
 	target_pos = Vector2(olive_button.get_position().x, 300)
 	olive_button.set_position(source_pos)
+	olive_button.mouse_filter = MOUSE_FILTER_STOP
 	tween.interpolate_property(olive_button, "rect_position", source_pos, target_pos, 0.7, Tween.TRANS_BACK, Tween.EASE_OUT, 0.1)
 	# Cheese Button
 	source_pos = Vector2(cheese_button.get_position().x, 440)
 	target_pos = Vector2(cheese_button.get_position().x, 300)
 	cheese_button.set_position(source_pos)
+	cheese_button.mouse_filter = MOUSE_FILTER_STOP
 	tween.interpolate_property(cheese_button, "rect_position", source_pos, target_pos, 0.7, Tween.TRANS_BACK, Tween.EASE_OUT, 0.2)
 	# Mushroom Button
 	source_pos = Vector2(mushroom_button.get_position().x, 440)
 	target_pos = Vector2(mushroom_button.get_position().x, 300)
 	mushroom_button.set_position(source_pos)
+	mushroom_button.mouse_filter = MOUSE_FILTER_STOP
 	tween.interpolate_property(mushroom_button, "rect_position", source_pos, target_pos, 0.7, Tween.TRANS_BACK, Tween.EASE_OUT, 0.3)
 	
 	show_options()
@@ -45,16 +48,19 @@ func transition_out(complete_callback: FuncRef) -> void:
 	source_pos = Vector2(olive_button.get_position().x, 300)
 	target_pos = Vector2(olive_button.get_position().x, 440)
 	olive_button.set_position(source_pos)
+	olive_button.mouse_filter = MOUSE_FILTER_IGNORE
 	tween.interpolate_property(olive_button, "rect_position", source_pos, target_pos, 0.7, Tween.TRANS_BACK, Tween.EASE_IN, 0.1)
 	# Cheese Button
 	source_pos = Vector2(cheese_button.get_position().x, 300)
 	target_pos = Vector2(cheese_button.get_position().x, 440)
 	cheese_button.set_position(source_pos)
+	cheese_button.mouse_filter = MOUSE_FILTER_IGNORE
 	tween.interpolate_property(cheese_button, "rect_position", source_pos, target_pos, 0.7, Tween.TRANS_BACK, Tween.EASE_IN, 0.2)
 	# Mushroom Button
 	source_pos = Vector2(mushroom_button.get_position().x, 300)
 	target_pos = Vector2(mushroom_button.get_position().x, 440)
 	mushroom_button.set_position(source_pos)
+	mushroom_button.mouse_filter = MOUSE_FILTER_IGNORE
 	tween.interpolate_property(mushroom_button, "rect_position", source_pos, target_pos, 0.7, Tween.TRANS_BACK, Tween.EASE_IN, 0.3)
 	
 	.transition_out(complete_callback)

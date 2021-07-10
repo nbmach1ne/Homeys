@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Assets/Scripts/FoodMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scripts/HUD.gd" type="Script" id=2]
@@ -21,6 +21,9 @@
 [ext_resource path="res://Assets/Scripts/HUDFoodMinigame.gd" type="Script" id=19]
 [ext_resource path="res://Assets/Sprites/mascara.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Sprites/light.jpg" type="Texture" id=21]
+[ext_resource path="res://Assets/Sounds/buttons.wav" type="AudioStream" id=22]
+[ext_resource path="res://Assets/Sounds/close_button.wav" type="AudioStream" id=23]
+[ext_resource path="res://Assets/Sounds/animal_cutrosing.wav" type="AudioStream" id=24]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 10 )
@@ -197,7 +200,7 @@ position = Vector2( 354.606, 276.041 )
 
 [node name="FoodMinigame" type="Node2D" parent="BicheteManager"]
 script = ExtResource( 1 )
-total_time = 1
+total_time = 1.5
 
 [node name="HungryStat" type="Node2D" parent="BicheteManager/FoodMinigame"]
 script = ExtResource( 15 )
@@ -274,6 +277,7 @@ vframes = 4
 
 [node name="PetMinigame" type="Node2D" parent="BicheteManager"]
 script = ExtResource( 5 )
+total_time = 4.5
 
 [node name="BoredStat" type="Node2D" parent="BicheteManager/PetMinigame"]
 script = ExtResource( 15 )
@@ -451,6 +455,16 @@ margin_right = 202.395
 margin_bottom = 426.111
 texture_normal = SubResource( 20 )
 texture_pressed = SubResource( 21 )
+
+[node name="OptionButtonsSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 22 )
+
+[node name="QuitButtonSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 23 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+autoplay = true
 [connection signal="complete_minigame" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_complete_minigame"]
 [connection signal="food_selected" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_food_selected"]
 [connection signal="start_action" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_start_action"]
@@ -464,7 +478,9 @@ texture_pressed = SubResource( 21 )
 [connection signal="stop_action" from="BicheteManager/PetMinigame" to="BicheteManager" method="_on_PetMinigame_stop_action"]
 [connection signal="sad_limit_reached" from="BicheteManager/PetMinigame/BoredStat" to="BicheteManager" method="_on_BoredStat_sad_limit_reached"]
 [connection signal="button_down" from="BicheteManager/PetMinigame/HUD/Hand" to="BicheteManager/PetMinigame" method="_on_Hand_button_down"]
+[connection signal="button_down" from="HUD/PetButton" to="HUD" method="_on_PetButton_button_down"]
 [connection signal="button_down" from="HUD/PetButton" to="BicheteManager" method="_on_PetButton_button_down"]
+[connection signal="button_down" from="HUD/FoodButton" to="HUD" method="_on_FoodButton_button_down"]
 [connection signal="button_down" from="HUD/FoodButton" to="BicheteManager" method="_on_FoodButton_button_down"]
 [connection signal="button_down" from="HUD/PowerButton" to="HUD" method="_on_PowerButton_button_down"]
 [connection signal="button_down" from="HUD/VolumeDown" to="HUD" method="_on_VolumeDown_button_down"]

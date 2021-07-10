@@ -3,7 +3,7 @@ extends Node2D
 
 # EXPORTS
 
-export var total_time = 5
+export(float) var total_time = 5
 
 # VARS
 

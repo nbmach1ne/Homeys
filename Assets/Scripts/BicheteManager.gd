@@ -144,7 +144,7 @@ func _on_PetMinigame_complete_minigame() -> void:
 
 
 func _on_FoodMinigame_start_action() -> void:
-	bichete.react_on_loop(selected_food != food_minigame_dislike)
+	bichete.react_on_loop(true, selected_food != food_minigame_dislike)
 
 
 func _on_FoodMinigame_stop_action() -> void:
@@ -152,7 +152,7 @@ func _on_FoodMinigame_stop_action() -> void:
 
 
 func _on_PetMinigame_start_action() -> void:
-	bichete.react_on_loop(true)
+	bichete.react_on_loop(false, false)
 
 
 func _on_PetMinigame_stop_action() -> void:
