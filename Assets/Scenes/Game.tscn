@@ -465,6 +465,7 @@ stream = ExtResource( 23 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
 autoplay = true
+
 [connection signal="complete_minigame" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_complete_minigame"]
 [connection signal="food_selected" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_food_selected"]
 [connection signal="start_action" from="BicheteManager/FoodMinigame" to="BicheteManager" method="_on_FoodMinigame_start_action"]
@@ -478,10 +479,10 @@ autoplay = true
 [connection signal="stop_action" from="BicheteManager/PetMinigame" to="BicheteManager" method="_on_PetMinigame_stop_action"]
 [connection signal="sad_limit_reached" from="BicheteManager/PetMinigame/BoredStat" to="BicheteManager" method="_on_BoredStat_sad_limit_reached"]
 [connection signal="button_down" from="BicheteManager/PetMinigame/HUD/Hand" to="BicheteManager/PetMinigame" method="_on_Hand_button_down"]
-[connection signal="button_down" from="HUD/PetButton" to="HUD" method="_on_PetButton_button_down"]
 [connection signal="button_down" from="HUD/PetButton" to="BicheteManager" method="_on_PetButton_button_down"]
-[connection signal="button_down" from="HUD/FoodButton" to="HUD" method="_on_FoodButton_button_down"]
+[connection signal="button_down" from="HUD/PetButton" to="HUD" method="_on_PetButton_button_down"]
 [connection signal="button_down" from="HUD/FoodButton" to="BicheteManager" method="_on_FoodButton_button_down"]
+[connection signal="button_down" from="HUD/FoodButton" to="HUD" method="_on_FoodButton_button_down"]
 [connection signal="button_down" from="HUD/PowerButton" to="HUD" method="_on_PowerButton_button_down"]
 [connection signal="button_down" from="HUD/VolumeDown" to="HUD" method="_on_VolumeDown_button_down"]
 [connection signal="button_down" from="HUD/VolumeUp" to="HUD" method="_on_VolumeUp_button_down"]
